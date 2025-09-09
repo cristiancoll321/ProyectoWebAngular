@@ -1,0 +1,12 @@
+.card img {
+  height: 180px;      /* Ajusta el valor según tu preferencia */
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+.card {
+  min-height: 450px; /* Ajusta según lo que necesites */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desarrolla tu marca</title>
+  <!-- Agrega aquí tus enlaces a CSS y scripts de Bootstrap -->
+</head>
+<body>
+  <div class="main-layout">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="assets/logoPagina.png" alt="Logo" style="height: 50px; margin-right: 10px;">
+          DESARROLLA TU MARCA
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/inicio">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/acerca" >Acerca de</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contacto">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Área de contenido -->
+        <main class="col-md-12 px-md-4">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+            *ngIf="router.url === '/inicio'"
+          >
+            <h1 class="h2">Panel Principal</h1>
+          </div>
+          
+          <!-- Aquí se carga el contenido de cada página -->
+          <router-outlet></router-outlet>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <div class="container">
+      <p>&copy; 2025 Desarrolla tu marca. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Agrega aquí tus scripts de JavaScript -->
+</body>
+</html>
