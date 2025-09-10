@@ -18,3 +18,63 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+/* Animaciones para cards */
+.card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Animación para botones */
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para el hero section */
+.hero-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 80px 0;
+}
+
+/* Estilos para contadores */
+.counter {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Mejoras en la tipografía */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+/* Estilos para cards */
+.card {
+    border: none;
+    border-radius: 10px;
+}
+
+/* Estilos para botones */
+.btn-primary {
+    padding: 10px 25px;
+    border-radius: 25px;
+}
+
+/* Estilos para inputs */
+.form-control {
+    padding: 12px;
+    border-radius: 8px;
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
