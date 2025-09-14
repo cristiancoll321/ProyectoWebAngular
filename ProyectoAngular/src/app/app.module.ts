@@ -8,6 +8,7 @@ import { PlantillaComponent } from './plantilla/plantilla.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { AcercadeComponent } from './acercade/acercade.component';
+import { TestimoniosComponent } from './testimonios/testimonios.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AcercadeComponent } from './acercade/acercade.component';
     PlantillaComponent,
     ServiciosComponent,
     ContactoComponent,
-    AcercadeComponent
+    AcercadeComponent,
+    TestimoniosComponent
   ],
   imports: [
     BrowserModule,
