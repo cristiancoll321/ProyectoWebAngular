@@ -8,11 +8,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactoComponent implements OnInit {
 
-  contactForm: FormGroup;
+  contactForm!: FormGroup;
   enviado = false;
-  isSubmitting = false; // <-- Agrega esta propiedad
+  isSubmitting = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
     this.contactForm = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
@@ -25,9 +27,6 @@ export class ContactoComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
-
-  // Método para validar campos
   isFieldInvalid(field: string): boolean {
     const control = this.contactForm.get(field);
     return !!(control && control.invalid && (control.dirty || control.touched));
@@ -37,15 +36,17 @@ export class ContactoComponent implements OnInit {
     if (this.contactForm.valid) {
       this.isSubmitting = true;
       this.enviado = true;
+
+      console.log('✅ Datos enviados:', this.contactForm.value);
+
+      // Simular envío y resetear después
       setTimeout(() => {
         this.isSubmitting = false;
+        this.contactForm.reset();
         this.enviado = false;
-      }, 4000);
-      this.contactForm.reset();
+      }, 3000);
     } else {
-      Object.values(this.contactForm.controls).forEach(control => {
-        control.markAsTouched();
-      });
+      this.contactForm.markAllAsTouched();
     }
   }
 }

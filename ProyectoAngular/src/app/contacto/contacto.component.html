@@ -1,4 +1,4 @@
-<!-- Hero Section Contacto -->
+<!-- Hero Section -->
 <div class="contact-hero bg-gradient text-white py-5">
   <div class="container">
     <div class="row align-items-center">
@@ -23,9 +23,9 @@
   </div>
 </div>
 
+<!-- Formulario -->
 <div class="container py-5">
   <div class="row">
-    <!-- Formulario de Contacto -->
     <div class="col-lg-8">
       <div class="card shadow-lg border-0">
         <div class="card-body p-5">
@@ -33,267 +33,65 @@
             <i class="fas fa-paper-plane text-primary me-2"></i>
             Envíanos tu mensaje
           </h3>
-          
-          <!-- Mensaje de éxito/error -->
-          <div class="alert alert-success d-none" id="successMessage">
+
+          <!-- Mensaje de éxito -->
+          <div *ngIf="enviado" class="alert alert-success">
             <i class="fas fa-check-circle me-2"></i>
-            ¡Mensaje enviado con éxito! Te contactaremos pronto.
-          </div>
-          
-          <div class="alert alert-danger d-none" id="errorMessage">
-            <i class="fas fa-exclamation-circle me-2"></i>
-            Hubo un error al enviar el mensaje. Inténtalo de nuevo.
+            Tu información ha sido enviada correctamente.
           </div>
 
           <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
-            <!-- Información Personal -->
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label class="form-label fw-semibold">Nombre completo *</label>
-                <input 
-                  type="text" 
-                  class="form-control form-control-lg"
-                  formControlName="nombre"
-                  placeholder="Tu nombre completo"
-                  [class.is-invalid]="isFieldInvalid('nombre')"
-                >
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('nombre')">
-                  El nombre es requerido
-                </div>
-              </div>
-              
-              <div class="col-md-6 mb-3">
-                <label class="form-label fw-semibold">Email *</label>
-                <input 
-                  type="email" 
-                  class="form-control form-control-lg"
-                  formControlName="email"
-                  placeholder="tu@email.com"
-                  [class.is-invalid]="isFieldInvalid('email')"
-                >
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('email')">
-                  <span *ngIf="contactForm.get('email')?.errors?.['required']">El email es requerido</span>
-                  <span *ngIf="contactForm.get('email')?.errors?.['email']">Ingresa un email válido</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label class="form-label fw-semibold">Teléfono</label>
-                <input 
-                  type="tel" 
-                  class="form-control form-control-lg"
-                  formControlName="telefono"
-                  placeholder="+57 300 123 4567"
-                >
-              </div>
-              
-              <div class="col-md-6 mb-3">
-                <label class="form-label fw-semibold">Tipo de servicio</label>
-                <select class="form-select form-select-lg" formControlName="tipoServicio">
-                  <option value="">Selecciona un servicio</option>
-                  <option value="asesoria">Asesoría Personalizada</option>
-                  <option value="identidad">Diseño de Identidad Visual</option>
-                  <option value="redes">Gestión de Redes Sociales</option>
-                  <option value="contenido">Creación de Contenido</option>
-                  <option value="posicionamiento">Posicionamiento Digital</option>
-                  <option value="completo">Servicio Completo</option>
-                </select>
-              </div>
-            </div>
-
             <div class="mb-3">
-              <label class="form-label fw-semibold">Asunto *</label>
-              <input 
-                type="text" 
-                class="form-control form-control-lg"
-                formControlName="asunto"
-                placeholder="¿En qué podemos ayudarte?"
-                [class.is-invalid]="isFieldInvalid('asunto')"
-              >
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" id="nombre" class="form-control"
+                formControlName="nombre" [class.is-invalid]="isFieldInvalid('nombre')">
+              <div class="invalid-feedback" *ngIf="isFieldInvalid('nombre')">
+                El nombre es obligatorio y debe tener al menos 2 caracteres.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo electrónico</label>
+              <input type="email" id="email" class="form-control"
+                formControlName="email" [class.is-invalid]="isFieldInvalid('email')">
+              <div class="invalid-feedback" *ngIf="isFieldInvalid('email')">
+                Ingresa un correo válido.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="asunto" class="form-label">Asunto</label>
+              <input type="text" id="asunto" class="form-control"
+                formControlName="asunto" [class.is-invalid]="isFieldInvalid('asunto')">
               <div class="invalid-feedback" *ngIf="isFieldInvalid('asunto')">
-                El asunto es requerido
+                El asunto es obligatorio.
               </div>
             </div>
-
             <div class="mb-3">
-              <label class="form-label fw-semibold">Mensaje *</label>
-              <textarea 
-                class="form-control form-control-lg"
-                rows="5" 
-                formControlName="mensaje"
-                placeholder="Cuéntanos más detalles sobre tu proyecto, objetivos o cualquier pregunta que tengas..."
-                [class.is-invalid]="isFieldInvalid('mensaje')"
-              ></textarea>
+              <label for="mensaje" class="form-label">Mensaje</label>
+              <textarea id="mensaje" class="form-control"
+                formControlName="mensaje" rows="4" [class.is-invalid]="isFieldInvalid('mensaje')"></textarea>
               <div class="invalid-feedback" *ngIf="isFieldInvalid('mensaje')">
-                El mensaje es requerido
-              </div>
-              <div class="form-text">
-                <i class="fas fa-info-circle text-primary me-1"></i>
-                Mínimo 10 caracteres. Mientras más detalles nos proporciones, mejor podremos ayudarte.
+                El mensaje es obligatorio y debe tener al menos 10 caracteres.
               </div>
             </div>
-
-            <!-- Presupuesto estimado -->
-            <div class="mb-4">
-              <label class="form-label fw-semibold">Presupuesto estimado (opcional)</label>
-              <select class="form-select form-select-lg" formControlName="presupuesto">
-                <option value="">Selecciona un rango</option>
-                <option value="500-1000">$500.000 - $1.000.000 COP</option>
-                <option value="1000-2000">$1.000.000 - $2.000.000 COP</option>
-                <option value="2000-5000">$2.000.000 - $5.000.000 COP</option>
-                <option value="5000+">Más de $5.000.000 COP</option>
-                <option value="consultar">Prefiero consultarlo</option>
-              </select>
-            </div>
-
-            <!-- Política de privacidad -->
-            <div class="form-check mb-4">
-              <input 
-                class="form-check-input" 
-                type="checkbox" 
-                formControlName="aceptaTerminos"
-                id="aceptaTerminos"
-                [class.is-invalid]="isFieldInvalid('aceptaTerminos')"
-              >
-              <label class="form-check-label" for="aceptaTerminos">
-                Acepto la <a href="#" class="text-primary">política de privacidad</a> y el tratamiento de mis datos personales *
+            <div class="form-check mb-3">
+              <input type="checkbox" id="aceptaTerminos" class="form-check-input"
+                formControlName="aceptaTerminos" [class.is-invalid]="isFieldInvalid('aceptaTerminos')">
+              <label for="aceptaTerminos" class="form-check-label">
+                Acepto los términos y condiciones
               </label>
               <div class="invalid-feedback" *ngIf="isFieldInvalid('aceptaTerminos')">
-                Debes aceptar la política de privacidad
+                Debes aceptar los términos.
               </div>
             </div>
-
-            <div class="text-center">
-              <button 
-                type="submit" 
-                class="btn btn-primary btn-lg px-5 py-3"
-                [disabled]="isSubmitting"
-              >
-                <span *ngIf="!isSubmitting">
-                  <i class="fas fa-paper-plane me-2"></i>
-                  Enviar Mensaje
-                </span>
-                <span *ngIf="isSubmitting">
-                  <i class="fas fa-spinner fa-spin me-2"></i>
-                  Enviando...
-                </span>
-              </button>
-            </div>
+            <button type="submit" class="btn btn-primary"
+              [disabled]="isSubmitting">
+              <span *ngIf="!isSubmitting"><i class="fas fa-paper-plane me-2"></i>Enviar Mensaje</span>
+              <span *ngIf="isSubmitting"><i class="fas fa-spinner fa-spin me-2"></i>Enviando...</span>
+            </button>
           </form>
-          <div *ngIf="enviado" class="alert alert-success mt-3">
-            Tu información ha sido enviada.
-          </div>
         </div>
       </div>
     </div>
 
-    <!-- Información de Contacto -->
-    <div class="col-lg-4">
-      <div class="contact-info">
-        <!-- Información Directa -->
-        <div class="card shadow-sm border-0 mb-4">
-          <div class="card-body p-4">
-            <h5 class="fw-bold mb-3">
-              <i class="fas fa-phone text-primary me-2"></i>
-              Contacto Directo
-            </h5>
-            <div class="contact-item mb-3">
-              <div class="d-flex align-items-center">
-                <i class="fas fa-phone-alt text-muted me-3"></i>
-                <div>
-                  <strong>Teléfono:</strong><br>
-                  <a href="tel:+573123275018" class="text-decoration-none">+57 312 327 5018</a>
-                </div>
-              </div>
-            </div>
-            <div class="contact-item mb-3">
-              <div class="d-flex align-items-center">
-                <i class="fas fa-envelope text-muted me-3"></i>
-                <div>
-                  <strong>Email:</strong><br>
-                  <a href="mailto:contacto@desarrollatumarca.com" class="text-decoration-none">contacto@desarrollatumarca.com</a>
-                </div>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="d-flex align-items-center">
-                <i class="fab fa-whatsapp text-success me-3"></i>
-                <div>
-                  <strong>WhatsApp:</strong><br>
-                  <a href="https://wa.me/573123275018" target="_blank" class="text-decoration-none text-success">
-                    Chatear ahora
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- Aquí sigues con la sección de Información de contacto y FAQ como la tenías -->
 
-        <!-- Horarios -->
-        <div class="card shadow-sm border-0 mb-4">
-          <div class="card-body p-4">
-            <h5 class="fw-bold mb-3">
-              <i class="fas fa-clock text-primary me-2"></i>
-              Horarios de Atención
-            </h5>
-            <div class="schedule-item mb-2">
-              <div class="d-flex justify-content-between">
-                <span>Lunes - Viernes:</span>
-                <span class="fw-semibold">8:00 AM - 6:00 PM</span>
-              </div>
-            </div>
-            <div class="schedule-item mb-2">
-              <div class="d-flex justify-content-between">
-                <span>Sábados:</span>
-                <span class="fw-semibold">9:00 AM - 2:00 PM</span>
-              </div>
-            </div>
-            <div class="schedule-item">
-              <div class="d-flex justify-content-between">
-                <span>Domingos:</span>
-                <span class="text-muted">Cerrado</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-<!-- FAQ Rápidas -->
-<div class="bg-light py-5">
-  <div class="container">
-    <div class="text-center mb-4">
-      <h3 class="fw-bold">Preguntas Frecuentes</h3>
-      <p class="text-muted">Respuestas rápidas a las consultas más comunes</p>
-    </div>
-    <div class="row">
-      <div class="col-md-4 mb-3">
-        <div class="card border-0 h-100">
-          <div class="card-body text-center">
-            <i class="fas fa-rocket fa-2x text-primary mb-3"></i>
-            <h6 class="fw-bold">¿Cuánto tarda el proceso?</h6>
-            <p class="text-muted small">Dependiendo del servicio, entre 2-8 semanas para resultados completos.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card border-0 h-100">
-          <div class="card-body text-center">
-            <i class="fas fa-dollar-sign fa-2x text-primary mb-3"></i>
-            <h6 class="fw-bold">¿Ofrecen consulta gratis?</h6>
-            <p class="text-muted small">Sí, la primera consulta de 30 minutos es completamente gratuita.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card border-0 h-100">
-          <div class="card-body text-center">
-            <i class="fas fa-headset fa-2x text-primary mb-3"></i>
-            <h6 class="fw-bold">¿Dan soporte continuo?</h6>
-            <p class="text-muted small">Incluimos 3 meses de soporte post-proyecto sin costo adicional.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>

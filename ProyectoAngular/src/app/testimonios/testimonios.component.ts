@@ -55,7 +55,7 @@ export class TestimoniosComponent implements OnInit {
       apellido: 'Silva',
       cargo: 'Emprendedor',
       empresa: 'EcoSolutions',
-      imagen: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&h=387',
+      imagen: 'https://tse1.mm.bing.net/th/id/OIP.P37aWseiNXmyCU54YOaxUQHaD4?rs=1&pid=ImgDetMain&o=7&rm=3',
       testimonio: 'Su enfoque personalizado me permitió posicionarme como referente en mi sector. La inversión se recuperó rápidamente.',
       rating: 5
     },
