@@ -10,3 +10,20 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+/* En tu inicio.component.css */
+.hero-section {
+  background: linear-gradient(135deg, #66b5ea 0%, #4b89a2 100%);
+  color: white;
+  padding: 100px 0;
+}
+
+.feature-item {
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+}

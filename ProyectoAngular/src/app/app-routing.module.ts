@@ -4,7 +4,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { PlantillaComponent } from './plantilla/plantilla.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 import { ContactoComponent } from './contacto/contacto.component'; 
-import { AcercadeComponent } from './acercade/acercade.component';   
+import { AcercadeComponent } from './acercade/acercade.component';
+import { TestimoniosComponent } from './testimonios/testimonios.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,11 @@ const routes: Routes = [
 {
   path:'acerca',
   component: AcercadeComponent
+},
+
+{
+  path:'testimonios',
+  component: TestimoniosComponent
 }
 
 

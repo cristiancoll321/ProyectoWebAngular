@@ -1,1 +1,111 @@
-<p>testimonios works!</p>
+<div class="testimonios-section py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Lo que Comentan nuestros clientes</h2>
+            <p class="section-subtitle text muted">Testimonios de las personas que han transformado su marca personal</p>
+    
+    </div>
+
+        <div class="testimonios-carousel" 
+            (mouseenter)="stopAutoSlide()" 
+            (mouseleave)="startAutoSlide()">
+        
+        <!-- Controles del carrusel -->
+        <button class="carousel-control prev" (click)="prevSlide()">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <button class="carousel-control next" (click)="nextSlide()">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Contenedor de las tarjetas -->
+        <div class="testimonios-container">
+            <div class="testimonios-wrapper" 
+                [style.transform]="'translateX(-' + (currentIndex * (100 / itemsToShow)) + '%)'">
+            
+            <div class="testimonio-card" *ngFor="let testimonio of testimonios">
+                <div class="card h-100 shadow-sm">
+                <!-- Imagen del cliente -->
+                <div class="card-img-container">
+                    <img [src]="testimonio.imagen" 
+                        [alt]="testimonio.nombre + ' ' + testimonio.apellido"
+                        class="card-img-top client-image">
+                    <div class="overlay-gradient"></div>
+                </div>
+                
+                <!-- Contenido de la tarjeta -->
+                <div class="card-body d-flex flex-column">
+                    <!-- Información del cliente -->
+                    <div class="client-info text-center mb-3">
+                    <h5 class="client-name mb-1">
+                        {{testimonio.nombre}} {{testimonio.apellido}}
+                    </h5>
+                    <p class="client-position text-muted mb-2">
+                        {{testimonio.cargo}} en {{testimonio.empresa}}
+                    </p>
+                    
+                    <!-- Estrellas de rating -->
+                    <div class="rating mb-3">
+                        <span *ngFor="let star of getStars(testimonio.rating)" class="star">
+                        <i class="fas fa-star text-warning"></i>
+                        </span>
+                    </div>
+                    </div>
+                    
+                    <!-- Testimonio -->
+                    <div class="testimonio-text flex-grow-1">
+                    <p class="text-muted">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        {{testimonio.testimonio}}
+                        <i class="fas fa-quote-right quote-icon"></i>
+                    </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+            <button 
+            *ngFor="let indicator of testimonios; let i = index"
+            [class.active]="i >= currentIndex && i < currentIndex + itemsToShow"
+            (click)="goToSlide(i)"
+            class="indicator">
+            </button>
+        </div>
+        </div>
+
+        <!-- Estadísticas adicionales -->
+        <div class="stats-section mt-5">
+        <div class="row text-center">
+            <div class="col-md-3">
+            <div class="stat-item">
+                <h3 class="stat-number text-primary">150+</h3>
+                <p class="stat-label">Clientes Satisfechos</p>
+            </div>
+            </div>
+            <div class="col-md-3">
+            <div class="stat-item">
+                <h3 class="stat-number text-primary">98%</h3>
+                <p class="stat-label">Tasa de Satisfacción</p>
+            </div>
+            </div>
+            <div class="col-md-3">
+            <div class="stat-item">
+                <h3 class="stat-number text-primary">5 años</h3>
+                <p class="stat-label">de Experiencia</p>
+            </div>
+            </div>
+            <div class="col-md-3">
+            <div class="stat-item">
+                <h3 class="stat-number text-primary">24/7</h3>
+                <p class="stat-label">Soporte</p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

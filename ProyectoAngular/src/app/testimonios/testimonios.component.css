@@ -1,0 +1,309 @@
+/* Estilos principales del componente */
+.testimonios-section {
+background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+position: relative;
+overflow: hidden;
+}
+
+.section-title {
+font-size: 2.5rem;
+font-weight: 700;
+color: #2c3e50;
+margin-bottom: 1rem;
+}
+
+.section-subtitle {
+font-size: 1.1rem;
+max-width: 600px;
+margin: 0 auto;
+}
+
+/* Contenedor del carrusel */
+.testimonios-carousel {
+position: relative;
+margin: 0 50px;
+}
+
+.testimonios-container {
+overflow: hidden;
+border-radius: 15px;
+}
+
+.testimonios-wrapper {
+display: flex;
+transition: transform 0.5s ease-in-out;
+width: calc(100% * 2); /* Ajustado para mostrar múltiples elementos */
+}
+
+.testimonio-card {
+flex: 0 0 33.333%; /* Mostrar 3 elementos por defecto */
+padding: 0 15px;
+box-sizing: border-box;
+}
+
+/* Estilos de la tarjeta */
+.card {
+border: none;
+border-radius: 20px;
+overflow: hidden;
+transition: all 0.3s ease;
+background: white;
+}
+
+.card:hover {
+transform: translateY(-10px);
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Imagen del cliente */
+.card-img-container {
+position: relative;
+height: 300px;
+overflow: hidden;
+}
+
+.client-image {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.3s ease;
+}
+
+.card:hover .client-image {
+transform: scale(1.05);
+}
+
+.overlay-gradient {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+height: 50%;
+background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+/* Contenido de la tarjeta */
+.card-body {
+padding: 2rem 1.5rem;
+}
+
+.client-info {
+border-bottom: 1px solid #eee;
+padding-bottom: 1rem;
+}
+
+.client-name {
+font-size: 1.4rem;
+font-weight: 600;
+color: #2c3e50;
+margin-bottom: 0.5rem;
+}
+
+.client-position {
+font-size: 0.9rem;
+color: #6c757d;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+
+/* Rating con estrellas */
+.rating {
+margin: 0.5rem 0;
+}
+
+.star {
+margin: 0 2px;
+font-size: 1.1rem;
+}
+
+/* Texto del testimonio */
+.testimonio-text {
+margin-top: 1rem;
+}
+
+.testimonio-text p {
+font-size: 1rem;
+line-height: 1.6;
+font-style: italic;
+color: #555;
+position: relative;
+}
+
+.quote-icon {
+color: #007bff;
+font-size: 0.8rem;
+opacity: 0.7;
+}
+
+.quote-icon:first-child {
+margin-right: 0.5rem;
+}
+
+.quote-icon:last-child {
+margin-left: 0.5rem;
+}
+
+/* Controles del carrusel */
+.carousel-control {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background: rgba(255, 255, 255, 0.9);
+border: 2px solid #007bff;
+border-radius: 50%;
+width: 50px;
+height: 50px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #007bff;
+cursor: pointer;
+transition: all 0.3s ease;
+z-index: 10;
+box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+.carousel-control:hover {
+background: #007bff;
+color: white;
+transform: translateY(-50%) scale(1.1);
+}
+
+.prev {
+left: -25px;
+}
+
+.next {
+right: -25px;
+}
+
+/* Indicadores */
+.carousel-indicators {
+display: flex;
+justify-content: center;
+margin-top: 2rem;
+gap: 10px;
+}
+
+.indicator {
+width: 12px;
+height: 12px;
+border-radius: 50%;
+border: 2px solid #ddd;
+background: transparent;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.indicator.active {
+background: #007bff;
+border-color: #007bff;
+}
+
+.indicator:hover {
+border-color: #007bff;
+background: rgba(0, 123, 255, 0.3);
+}
+
+/* Sección de estadísticas */
+.stats-section {
+padding: 3rem 0;
+background: white;
+border-radius: 20px;
+margin-top: 3rem;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item {
+padding: 1rem;
+}
+
+.stat-number {
+font-size: 3rem;
+font-weight: 700;
+margin-bottom: 0.5rem;
+background: linear-gradient(45deg, #007bff, #0056b3);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+.stat-label {
+font-size: 1.1rem;
+color: #6c757d;
+font-weight: 500;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.testimonios-carousel {
+    margin: 0 20px;
+}
+
+.testimonio-card {
+    flex: 0 0 100%;
+}
+
+.carousel-control {
+    width: 40px;
+    height: 40px;
+}
+
+.prev {
+    left: -20px;
+}
+
+.next {
+    right: -20px;
+}
+
+.section-title {
+    font-size: 2rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+}
+}
+
+@media (max-width: 992px) and (min-width: 769px) {
+.testimonio-card {
+    flex: 0 0 50%;
+}
+}
+
+/* Animaciones adicionales */
+@keyframes fadeIn {
+from {
+    opacity: 0;
+    transform: translateY(20px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+.card {
+animation: fadeIn 0.6s ease-out;
+}
+
+/* Efectos de hover mejorados */
+.card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(45deg, transparent, rgba(0, 123, 255, 0.1), transparent);
+opacity: 0;
+transition: opacity 0.3s ease;
+z-index: 1;
+}
+
+.card:hover::before {
+opacity: 1;
+}
