@@ -1,97 +1,53 @@
-<!-- Hero Section -->
-<div class="contact-hero bg-gradient text-white py-5">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6">
-        <h1 class="h2 fw-bold mb-3">¡Hablemos de tu proyecto!</h1>
-        <p class="lead mb-4">Estamos aquí para ayudarte a desarrollar tu marca personal. Cuéntanos sobre tus objetivos.</p>
-        <div class="d-flex flex-wrap gap-3">
-          <div class="contact-info-item">
-            <i class="fas fa-clock text-warning me-2"></i>
-            <span>Respuesta en 24h</span>
-          </div>
-          <div class="contact-info-item">
-            <i class="fas fa-shield-alt text-success me-2"></i>
-            <span>100% Confidencial</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 text-center">
-        <i class="fas fa-comments fa-5x text-white-50"></i>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- Formulario -->
 <div class="container py-5">
-  <div class="row">
-    <div class="col-lg-8">
-      <div class="card shadow-lg border-0">
-        <div class="card-body p-5">
-          <h3 class="text-center mb-4">
-            <i class="fas fa-paper-plane text-primary me-2"></i>
-            Envíanos tu mensaje
-          </h3>
-
-          <!-- Mensaje de éxito -->
-          <div *ngIf="enviado" class="alert alert-success">
-            <i class="fas fa-check-circle me-2"></i>
-            Tu información ha sido enviada correctamente.
-          </div>
-
-          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
-            <div class="mb-3">
-              <label for="nombre" class="form-label">Nombre</label>
-              <input type="text" id="nombre" class="form-control"
-                formControlName="nombre" [class.is-invalid]="isFieldInvalid('nombre')">
-              <div class="invalid-feedback" *ngIf="isFieldInvalid('nombre')">
-                El nombre es obligatorio y debe tener al menos 2 caracteres.
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Correo electrónico</label>
-              <input type="email" id="email" class="form-control"
-                formControlName="email" [class.is-invalid]="isFieldInvalid('email')">
-              <div class="invalid-feedback" *ngIf="isFieldInvalid('email')">
-                Ingresa un correo válido.
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="asunto" class="form-label">Asunto</label>
-              <input type="text" id="asunto" class="form-control"
-                formControlName="asunto" [class.is-invalid]="isFieldInvalid('asunto')">
-              <div class="invalid-feedback" *ngIf="isFieldInvalid('asunto')">
-                El asunto es obligatorio.
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="mensaje" class="form-label">Mensaje</label>
-              <textarea id="mensaje" class="form-control"
-                formControlName="mensaje" rows="4" [class.is-invalid]="isFieldInvalid('mensaje')"></textarea>
-              <div class="invalid-feedback" *ngIf="isFieldInvalid('mensaje')">
-                El mensaje es obligatorio y debe tener al menos 10 caracteres.
-              </div>
-            </div>
-            <div class="form-check mb-3">
-              <input type="checkbox" id="aceptaTerminos" class="form-check-input"
-                formControlName="aceptaTerminos" [class.is-invalid]="isFieldInvalid('aceptaTerminos')">
-              <label for="aceptaTerminos" class="form-check-label">
-                Acepto los términos y condiciones
-              </label>
-              <div class="invalid-feedback" *ngIf="isFieldInvalid('aceptaTerminos')">
-                Debes aceptar los términos.
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary"
-              [disabled]="isSubmitting">
-              <span *ngIf="!isSubmitting"><i class="fas fa-paper-plane me-2"></i>Enviar Mensaje</span>
-              <span *ngIf="isSubmitting"><i class="fas fa-spinner fa-spin me-2"></i>Enviando...</span>
-            </button>
-          </form>
-        </div>
+  <h3 class="text-center mb-4">Comunícate con nuestero equipo</h3>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+    <div>
+      <label for="nombre">Nombre</label><br>
+      <input type="text" id="nombre" formControlName="nombre" />
+      <div *ngIf="isFieldInvalid('nombre')" style="color:red; font-size: 0.9rem;">
+        El nombre es obligatorio y debe tener al menos 2 caracteres.
       </div>
     </div>
-
-    <!-- Aquí sigues con la sección de Información de contacto y FAQ como la tenías -->
+    <br>
+    <div>
+      <label for="email">Correo electrónico</label><br>
+      <input type="email" id="email" formControlName="email" />
+      <div *ngIf="isFieldInvalid('email')" style="color:red; font-size: 0.9rem;">
+        Ingresa un correo válido.
+      </div>
+    </div>
+    <br>
+    <div>
+      <label for="asunto">Asunto</label><br>
+      <input type="text" id="asunto" formControlName="asunto" />
+      <div *ngIf="isFieldInvalid('asunto')" style="color:red; font-size: 0.9rem;">
+        El asunto es obligatorio.
+      </div>
+    </div>
+    <br>
+    <div>
+      <label for="mensaje">Mensaje</label><br>
+      <textarea id="mensaje" formControlName="mensaje" rows="4"></textarea>
+      <div *ngIf="isFieldInvalid('mensaje')" style="color:red; font-size: 0.9rem;">
+        El mensaje es obligatorio y debe tener al menos 10 caracteres.
+      </div>
+    </div>
+    <br>
+    <div>
+      <input type="checkbox" id="aceptaTerminos" formControlName="aceptaTerminos" />
+      <label for="aceptaTerminos">Acepto los términos y condiciones</label>
+      <div *ngIf="isFieldInvalid('aceptaTerminos')" style="color:red; font-size: 0.9rem;">
+        Debes aceptar los términos.
+      </div>
+    </div>
+    <br>
+    <button type="submit" [disabled]="isSubmitting">
+      {{ isSubmitting ? 'Enviando...' : 'Enviar Mensaje' }}
+    </button>
+    <p *ngIf="enviado" style="color: green; margin-top: 15px;">
+      Tu información ha sido enviada correctamente.
+    </p>
+  </form>
+</div>
 

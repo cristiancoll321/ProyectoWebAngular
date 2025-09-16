@@ -39,7 +39,6 @@ export class ContactoComponent implements OnInit {
 
       console.log('✅ Datos enviados:', this.contactForm.value);
 
-      // Simular envío y resetear después
       setTimeout(() => {
         this.isSubmitting = false;
         this.contactForm.reset();
@@ -50,3 +49,4 @@ export class ContactoComponent implements OnInit {
     }
   }
 }
+

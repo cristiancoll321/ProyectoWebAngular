@@ -1,277 +1,104 @@
-/* Hero Section Contacto */
-.contact-hero {
-background: linear-gradient(135deg, #4285f4 0%, #0056b3 100%);
-position: relative;
-overflow: hidden;
-color: #111 !important; /* Cambia el texto a negro */
+/* Estilos básicos para el contenedor */
+.container {
+max-width: 600px;
+margin: 40px auto;
+padding: 20px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background: #f7f9fc;
+border-radius: 12px;
+box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-.contact-hero::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: rgba(0, 0, 0, 0.1);
+/* Título */
+h3 {
+text-align: center;
+color: #33475b;
+margin-bottom: 30px;
 }
 
-.contact-hero .container {
-position: relative;
-z-index: 2;
-}
-
-.contact-hero h1,
-.contact-hero .lead,
-.contact-hero p,
-.contact-hero .fw-bold {
-color: #111 !important; /* Asegura que los títulos y textos sean negros */
-}
-
-.contact-info-item {
-background: rgba(255, 255, 255, 0.1);
-padding: 8px 16px;
-border-radius: 20px;
-font-size: 0.9rem;
-}
-
-/* Formulario mejorado */
-.form-control, .form-select {
-border: 2px solid #e9ecef;
-border-radius: 10px;
-transition: all 0.3s ease;
-padding: 12px 16px;
-}
-
-.form-control:focus, .form-select:focus {
-border-color: #007bff;
-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-.form-control-lg, .form-select-lg {
-padding: 16px 20px;
-font-size: 1.1rem;
-}
-
-.form-label {
-color: #495057;
-margin-bottom: 8px;
-}
-
-/* Validaciones */
-.form-control.is-invalid, .form-select.is-invalid {
-border-color: #dc3545;
-}
-
-.form-control.is-invalid:focus, .form-select.is-invalid:focus {
-box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
-}
-
-.invalid-feedback {
+/* Labels */
+label {
 display: block;
-color: #dc3545;
-font-size: 0.875rem;
-margin-top: 5px;
-}
-
-/* Checkbox personalizado */
-.form-check-input {
-width: 1.25rem;
-height: 1.25rem;
-border: 2px solid #007bff;
-}
-
-.form-check-input:checked {
-background-color: #007bff;
-border-color: #007bff;
-}
-
-/* Botones mejorados */
-.btn-primary {
-background: linear-gradient(45deg, #007bff, #0056b3);
-border: none;
-border-radius: 10px;
+margin-bottom: 6px;
 font-weight: 600;
-text-transform: uppercase;
-letter-spacing: 0.5px;
-transition: all 0.3s ease;
-box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+color: #33475b;
 }
 
-.btn-primary:hover:not(:disabled) {
-transform: translateY(-2px);
-box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+/* Inputs y textarea */
+input[type="text"],
+input[type="email"],
+textarea {
+width: 100%;
+padding: 12px 15px;
+border: 2px solid #d1d9e6;
+border-radius: 8px;
+font-size: 1rem;
+color: #344054;
+transition: border-color 0.3s ease;
 }
 
-.btn-primary:disabled {
-opacity: 0.7;
-transform: none;
-box-shadow: none;
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+outline: none;
+border-color: #3b82f6;
+box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
 }
 
-/* Información de contacto */
-.contact-info .card {
-transition: all 0.3s ease;
+/* Checkbox y label alineados */
+input[type="checkbox"] {
+width: 18px;
+height: 18px;
+margin-right: 8px;
+vertical-align: middle;
 }
 
-.contact-info .card:hover {
-transform: translateY(-5px);
-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+label[for="aceptaTerminos"] {
+display: inline-block;
+font-weight: 500;
+color: #33475b;
 }
 
-.contact-item {
-padding: 10px 0;
-border-bottom: 1px solid #f8f9fa;
+/* Mensajes de error */
+div[style*="color:red"] {
+margin-top: 4px;
+font-size: 0.85rem;
+font-style: italic;
 }
 
-.contact-item:last-child {
-border-bottom: none;
-}
-
-.schedule-item {
-padding: 5px 0;
-}
-
-/* Redes sociales */
-.social-links {
-display: flex;
-justify-content: center;
-gap: 15px;
-}
-
-.social-link {
-display: flex;
-align-items: center;
-justify-content: center;
-width: 45px;
-height: 45px;
-background: linear-gradient(45deg, #007bff, #0056b3);
-color: white;
-text-decoration: none;
-border-radius: 50%;
-transition: all 0.3s ease;
-font-size: 1.2rem;
-}
-
-.social-link:hover {
-transform: translateY(-3px) scale(1.1);
-color: white;
-box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
-}
-
-/* Alertas personalizadas */
-.alert {
+/* Botón */
+button {
+display: block;
+width: 100%;
+padding: 14px 0;
+background-color: #3b82f6;
 border: none;
 border-radius: 10px;
-font-weight: 500;
-margin-bottom: 2rem;
-}
-
-.alert-success {
-background: linear-gradient(45deg, #28a745, #20c997);
 color: white;
+font-weight: 700;
+font-size: 1.1rem;
+cursor: pointer;
+transition: background-color 0.3s ease;
 }
 
-.alert-danger {
-background: linear-gradient(45deg, #dc3545, #fd7e14);
-color: white;
+button:disabled {
+background-color: #98b7f1;
+cursor: not-allowed;
 }
 
-/* FAQ Cards */
-.bg-light .card {
-transition: all 0.3s ease;
+button:hover:not(:disabled) {
+background-color: #2563eb;
 }
 
-.bg-light .card:hover {
-transform: translateY(-5px);
-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+/* Mensaje de éxito */
+p[style*="color: green"] {
+text-align: center;
+font-weight: 600;
+margin-top: 25px;
+color: #22c55e !important;
 }
 
-/* Animaciones */
-@keyframes fadeInUp {
-from {
-opacity: 0;
-transform: translateY(30px);
-}
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
-
-.card {
-animation: fadeInUp 0.6s ease-out;
-}
-
-/* Loading spinner */
-.fa-spinner {
-animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-from {
-transform: rotate(0deg);
-}
-to {
-transform: rotate(360deg);
-}
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-.contact-hero h1 {
-font-size: 1.8rem;
-}
-
-.contact-hero .lead {
-font-size: 1rem;
-}
-
-.contact-info-item {
-margin-bottom: 10px;
-}
-
-.btn-lg {
-font-size: 1rem;
-padding: 12px 24px;
-}
-
-.social-links {
-gap: 10px;
-}
-
-.social-link {
-width: 40px;
-height: 40px;
-font-size: 1rem;
-}
-}
-
-/* Efectos adicionales */
-.form-control:hover,
-.form-select:hover {
-border-color: #007bff;
-}
-
-.card-body {
-position: relative;
-overflow: hidden;
-}
-
-.card-body::before {
-content: '';
-position: absolute;
-top: -50%;
-left: -50%;
-width: 200%;
-height: 200%;
-background: linear-gradient(45deg, transparent, rgba(0, 123, 255, 0.05), transparent);
-transform: rotate(-45deg);
-transition: all 0.5s ease;
-opacity: 0;
-}
-
-.card:hover .card-body::before {
-opacity: 1;
-transform: rotate(-45deg) translate(20%, 20%);
+/* Espaciados */
+div {
+margin-bottom: 18px;
 }
