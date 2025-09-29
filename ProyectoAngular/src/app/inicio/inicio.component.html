@@ -103,3 +103,29 @@
     <a href="/servicios" class="btn btn-outline-light btn-lg">Ver Servicios</a>
   </div>
 </div>
+
+----------------------
+
+<form action="">
+  <div class="form-group">
+    <label for="num1">Número 1:</label>
+    <input type="number"
+    class="form-control" 
+    id="num1" 
+    name="num1" 
+    placeholder="Ingresa el primer número"
+    [(ngModel)]="num1"/>
+  </div>
+  <div>
+    <label for="num2">Número 2:</label>
+    <input type="number" 
+    class="form-control" 
+    id="num2" 
+    name="num2" 
+    placeholder="Ingresa el segundo número"
+    [(ngModel)]="num2"/>
+  </div>
+  <button type="button" class="btn btn-primary mt-3" (click)="onSumar()">Sumar</button>
+</form>
+<p>Resultado {{ resultado }}</p>
+<p>{{ mensaje }}</p>
