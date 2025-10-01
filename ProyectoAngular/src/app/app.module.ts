@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -9,7 +9,7 @@ import { ServiciosComponent } from './servicios/servicios.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { AcercadeComponent } from './acercade/acercade.component';
 import { TestimoniosComponent } from './testimonios/testimonios.component';
-import { FormsModule } from "@angular/forms";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { FormsModule } from "@angular/forms";
     ServiciosComponent,
     ContactoComponent,
     AcercadeComponent,
-    TestimoniosComponent
+    TestimoniosComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

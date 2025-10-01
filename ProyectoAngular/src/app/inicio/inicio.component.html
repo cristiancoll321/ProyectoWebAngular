@@ -104,10 +104,11 @@
   </div>
 </div>
 
-----------------------
+<!-- Ejemplo de formulario de suma -->
+<h2>Calculadora Básica</h2>    
 
-<form action="">
-  <div class="form-group">
+<form action="" class="mb-4">
+  <div class="form-group mb-3">
     <label for="num1">Número 1:</label>
     <input type="number"
     class="form-control" 
@@ -116,7 +117,7 @@
     placeholder="Ingresa el primer número"
     [(ngModel)]="num1"/>
   </div>
-  <div>
+  <div class="form-group mb-3">
     <label for="num2">Número 2:</label>
     <input type="number" 
     class="form-control" 
@@ -125,7 +126,14 @@
     placeholder="Ingresa el segundo número"
     [(ngModel)]="num2"/>
   </div>
-  <button type="button" class="btn btn-primary mt-3" (click)="onSumar()">Sumar</button>
+  <div class="btn-group" role="group" aria-label="Operaciones básicas">
+    <button type="button" class="btn btn-primary" (click)="onSumar()">Sumar</button>
+    <button type="button" class="btn btn-primary" (click)="onRestar()">Restar</button>
+    <button type="button" class="btn btn-primary" (click)="onMultiplicar()">Multiplicar</button>
+    <button type="button" class="btn btn-primary" (click)="onDividir()">Dividir</button>
+  </div>
 </form>
-<p>Resultado {{ resultado }}</p>
-<p>{{ mensaje }}</p>
+<div class="alert" [ngClass]="{'alert-success': !error, 'alert-danger': error}" *ngIf="mensaje">
+  <p class="mb-0">{{ mensaje }}</p>
+</div>
+<p *ngIf="resultado !== undefined"><strong>Resultado:</strong> {{ resultado }}</p>
