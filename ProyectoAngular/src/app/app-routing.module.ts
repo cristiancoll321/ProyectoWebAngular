@@ -9,11 +9,10 @@ import { TestimoniosComponent } from './testimonios/testimonios.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-{
-  path:'',
-  redirectTo:'/inicio',
-  pathMatch:'full'
-}, 
+  
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+
 
 {
   path:'inicio',
@@ -48,6 +47,10 @@ const routes: Routes = [
 {
   path:'login',
   component: LoginComponent
+},
+
+{
+  path:'',redirectTo:'/inicio',pathMatch:'full'
 }
 
 
